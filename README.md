@@ -2,7 +2,7 @@
 
 ### 1.1
 
-完成并行训练代码，2张卡训练
+完成并行训练代码，2张卡训练 (done)
 
 
 
@@ -10,7 +10,7 @@
 
 https://www.kaggle.com/competitions/benetech-making-graphs-accessible/discussion/406250
 
-matcha
+matcha (done)
 
 ```python
 model = Pix2StructForConditionalGeneration.from_pretrained("google/matcha-plotqa-v2")
@@ -56,9 +56,9 @@ https://www.kaggle.com/competitions/benetech-making-graphs-accessible/discussion
 
 https://www.kaggle.com/code/thanhhau097a/deplot-inference
 
-使用deplot inference代码
+使用deplot inference代码 (done)
 
-需要改标签形式
+需要改标签形式 (done)
 
 ```python
 # x1,x2 <> y1 y2
@@ -70,7 +70,7 @@ https://www.kaggle.com/code/thanhhau097a/deplot-inference
 
 5种图片类型
 
-需要使用resnet去5分类
+需要使用resnet去5分类 (done) resnet50
 
 ```python
 'dot': 0, 'horizontal_bar' : 1, 'vertical_bar': 2, 'line': 3, 'scatter': 4
@@ -82,19 +82,18 @@ https://www.kaggle.com/code/thanhhau097a/simple-submission-classification-task-t
 
 ### 2.3
 
-替换对应的权重文件并保证 train 和 infer 的 transformer 版本一致
+替换对应的权重文件并保证 train 和 infer 的 transformer 版本一致 (done)
 
-完成线上 infer 得到第一个分数
-
+完成线上 infer 得到第一个分数 (done, score:0.44) (感模型觉没收敛)
 
 
 ## schedule
 
-6.5 - 6.6 
+6.5 - 6.6 (done)
 
 训完没并行的 matcha
 
-6.6 
+6.6 (done)
 
 huggingface trainer
 
@@ -104,9 +103,9 @@ data parallel 实现 ddp 训练
 
 6.7
 
-线上线下 infer
+线上线下 infer (done)
 
-===> 走通流程，得到第一个分数 0.60左右
+===> 走通流程，得到第一个分数 0.60左右 (done,score: 0.44)
 
 6.8
 
@@ -128,7 +127,6 @@ dbnet 得到xy标签
 
 
 
-=======>  6.13 end
-
+=======>  6.20 end
 
 
