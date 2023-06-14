@@ -4,8 +4,6 @@
 
 完成并行训练代码，2张卡训练 (done)
 
-
-
 分别使用matcha和deplot进行训练
 
 https://www.kaggle.com/competitions/benetech-making-graphs-accessible/discussion/406250
@@ -28,7 +26,7 @@ processor = AutoProcessor.from_pretrained("google/deplot")
 
 https://github.com/MhLiao/DB
 
-DB-NET对图像进行文本检，检测x y轴的label，作为prompt输入
+DB-NET对图像进行文本检，检测x y轴的label，作为prompt输入 (效果一般)
 
 ```python
 encoding = self.processor(images=image,
@@ -68,7 +66,7 @@ https://www.kaggle.com/code/thanhhau097a/deplot-inference
 
 ### 2.2
 
-5种图片类型
+5种图片类型 
 
 需要使用resnet去5分类 (done) resnet50
 
@@ -84,7 +82,7 @@ https://www.kaggle.com/code/thanhhau097a/simple-submission-classification-task-t
 
 替换对应的权重文件并保证 train 和 infer 的 transformer 版本一致 (done)
 
-完成线上 infer 得到第一个分数 (done, score:0.44) (感模型觉没收敛)
+完成线上 infer 得到第一个分数 (done, score:0.46)
 
 
 ## schedule
@@ -105,28 +103,24 @@ data parallel 实现 ddp 训练
 
 线上线下 infer (done)
 
-===> 走通流程，得到第一个分数 0.60左右 (done,score: 0.44)
+===> 走通流程，得到第一个分数 0.60左右 (done,score: 0.46)
 
 6.8
 
-dbnet 得到xy标签
+dbnet 得到xy标签 (done, 识别效果一般)
 
 添加 prompt进行训练
 
-6.9 
+6.12
 
-训完带prompt的版本
+添加 weight-decay 和 warmup 进行训练 (done， weight-decay = 1/10 lr, warmup-step = 0.2)
 
-===> infer 得到第二个分数 
+添加 1/10 500k 数据集进行训练
 
-6.10
+添加 ICDAR 2023 数据集进行训练
 
-添加 500k 数据集进行训练
+修改线上inference得到提交结果部分的代码
 
-===> infer 得到第三个分数
-
-
+使用 deplot 进行 finetune
 
 =======>  6.20 end
-
-
