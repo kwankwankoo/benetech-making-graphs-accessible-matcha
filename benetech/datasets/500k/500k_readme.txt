@@ -1,0 +1,1 @@
+You can download 500k dataset towards https://www.kaggle.com/competitions/benetech-making-graphs-accessible/discussion/413055
