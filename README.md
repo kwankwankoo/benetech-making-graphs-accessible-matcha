@@ -15,11 +15,11 @@ model = Pix2StructForConditionalGeneration.from_pretrained("google/matcha-plotqa
 processor = Pix2StructProcessor.from_pretrained("google/matcha-base")
 ```
 
-deplot
+deplot (done)
 
 ```python
-model = Pix2StructForConditionalGeneration.from_pretrained("google/deplot")
-processor = AutoProcessor.from_pretrained("google/deplot")
+model = Pix2StructForConditionalGeneration.from_pretrained("./deplot")
+processor = AutoProcessor.from_pretrained(./deplot")
 ```
 
 ### 1.2
@@ -42,11 +42,11 @@ encoding = self.processor(images=image,
 
 500k graphs数据集
 
-增加数据进行训练以提升模型准确率
+增加数据进行训练以提升模型准确率 (done)
 
 https://www.kaggle.com/competitions/benetech-making-graphs-accessible/discussion/413055
 
-
+500k 进行预处理后，分别生成了 "<x_start>x1,x2,x3<x_end><y_start>y1,y2,y3<y_end>" 和 "x1|y1<0x0A>x2|y2" 两种格式的label，由于时间有限只选择了前者进行训练。
 
 ## 2 infer
 
@@ -68,7 +68,7 @@ https://www.kaggle.com/code/thanhhau097a/deplot-inference
 
 5种图片类型 
 
-需要使用resnet去5分类 (done) resnet50
+需要使用resnet去5分类 (done, 分类准确率 99%+)
 
 ```python
 'dot': 0, 'horizontal_bar' : 1, 'vertical_bar': 2, 'line': 3, 'scatter': 4
@@ -82,7 +82,7 @@ https://www.kaggle.com/code/thanhhau097a/simple-submission-classification-task-t
 
 替换对应的权重文件并保证 train 和 infer 的 transformer 版本一致 (done)
 
-完成线上 infer 得到第一个分数 (done, score:0.46)
+完成线上 infer 得到第一个分数 (done, score: 0.46)
 
 
 ## schedule
@@ -113,14 +113,21 @@ dbnet 得到xy标签 (done, 识别效果一般)
 
 6.12
 
-添加 weight-decay 和 warmup 进行训练 (done， weight-decay = 1/10 lr, warmup-step = 0.2)
+添加 weight-decay 和 warmup 进行训练 (done， weight-decay = 1/10 lr, warmup-step = 0.2) (done)
 
-添加 1/10 500k 数据集进行训练
+添加 1/10 500k 数据集进行训练 (done)
 
-添加 ICDAR 2023 数据集进行训练
+使用 deplot 进行 finetune (done)
 
-修改线上inference得到提交结果部分的代码
+6.20
 
-使用 deplot 进行 finetune
+提交最终版本 (done)
 
-=======>  6.20 end
+=========================================================
+
+Final version:
+使用 deplot 对比赛数据 6w 和 1/10 500k 数据（共11w数据）进行训练，训练4个epoch后, 再使用比赛数据 6w 训练1个epoch。
+LB public score: 0.63, 排名：86/619 (13.8%)
+LB private score: 0.32, 排名：115/619 (18.5%)
+
+
